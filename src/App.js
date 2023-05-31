@@ -1,4 +1,14 @@
 import React from "react";
+import {
+    Link,
+    NavLink,
+    Outlet,
+    matchRoutes,
+    useLocation,
+    useParams,
+    useResolvedPath,
+    useRoutes,
+} from "react-router-dom";
 
 export default function App() {
     return (
@@ -20,30 +30,54 @@ export default function App() {
                                 />
                             </div>
                             <div className="hidden sm:-my-px sm:ml-6 sm:flex space-x-8">
-                                <a
-                                    className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
-                                    href="#id"
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        `${
+                                            isActive
+                                                ? "border-indigo-500 text-gray-900"
+                                                : ""
+                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
+                                    }
+                                    to="/"
                                 >
                                     Dashboard
-                                </a>
-                                <a
-                                    className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
-                                    href="#id"
+                                </NavLink>
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        `${
+                                            isActive
+                                                ? "border-indigo-500 text-gray-900"
+                                                : ""
+                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
+                                    }
+                                    to="/team"
                                 >
                                     Team
-                                </a>
-                                <a
-                                    className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
-                                    href="#id"
+                                </NavLink>
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        `${
+                                            isActive
+                                                ? "border-indigo-500 text-gray-900"
+                                                : ""
+                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
+                                    }
+                                    to="/projects"
                                 >
                                     Projects
-                                </a>
-                                <a
-                                    className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
-                                    href="#id"
+                                </NavLink>
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        `${
+                                            isActive
+                                                ? "border-indigo-500 text-gray-900"
+                                                : ""
+                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
+                                    }
+                                    to="/calender"
                                 >
                                     Calendar
-                                </a>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
