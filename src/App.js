@@ -39,7 +39,7 @@ function NavLink({
 
 const routes = [
     {
-        path: "/new-dashboard",
+        path: "/",
         element: <Dashboard />,
         children: [
             { path: "", element: <p>Overview</p> },
@@ -113,7 +113,7 @@ export default function App() {
                                     activeClassName="border-indigo-500 text-gray-900"
                                     inactiveClassName="text-gray-500 hover:text-gray-700 hover:border-gray-300"
                                     className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
-                                    to="/new-dashboard"
+                                    to="/"
                                 >
                                     Dashboard
                                 </NavLink>
