@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Link,
-    NavLink,
     Outlet,
     matchRoutes,
     useLocation,
@@ -9,6 +8,27 @@ import {
     useResolvedPath,
     useRoutes,
 } from "react-router-dom";
+
+function NavLink({
+    children,
+    to,
+    className,
+    activeClassName,
+    inactiveClassName,
+    ...rest
+}) {
+    let location = useLocation();
+    let isActive = location.pathname === to;
+    let allClasses = ` ${className} ${
+        isActive ? `${activeClassName}` : `${inactiveClassName}`
+    }`;
+
+    return (
+        <Link className={allClasses} to={to} {...rest}>
+            {children}
+        </Link>
+    );
+}
 
 export default function App() {
     return (
@@ -29,51 +49,35 @@ export default function App() {
                                     alt="Workflow logo"
                                 />
                             </div>
-                            <div className="hidden sm:-my-px sm:ml-6 sm:flex space-x-8">
+                            <div className=" -my-px ml-6 flex space-x-8">
                                 <NavLink
-                                    className={({ isActive }) =>
-                                        `${
-                                            isActive
-                                                ? "border-indigo-500 text-gray-900"
-                                                : ""
-                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
-                                    }
+                                    className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
+                                    activeClassName="border-indigo-500 text-gray-900"
+                                    inactiveClassName="text-gray-500 hover:text-gray-700 hover:border-gray-300"
                                     to="/"
                                 >
                                     Dashboard
                                 </NavLink>
                                 <NavLink
-                                    className={({ isActive }) =>
-                                        `${
-                                            isActive
-                                                ? "border-indigo-500 text-gray-900"
-                                                : ""
-                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
-                                    }
+                                    className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
+                                    activeClassName="border-indigo-500 text-gray-900"
+                                    inactiveClassName="text-gray-500 hover:text-gray-700 hover:border-gray-300"
                                     to="/team"
                                 >
                                     Team
                                 </NavLink>
                                 <NavLink
-                                    className={({ isActive }) =>
-                                        `${
-                                            isActive
-                                                ? "border-indigo-500 text-gray-900"
-                                                : ""
-                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
-                                    }
+                                    className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
+                                    activeClassName="border-indigo-500 text-gray-900"
+                                    inactiveClassName="text-gray-500 hover:text-gray-700 hover:border-gray-300"
                                     to="/projects"
                                 >
                                     Projects
                                 </NavLink>
                                 <NavLink
-                                    className={({ isActive }) =>
-                                        `${
-                                            isActive
-                                                ? "border-indigo-500 text-gray-900"
-                                                : ""
-                                        } text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"`
-                                    }
+                                    className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5  transition duration-150 ease-in-out"
+                                    activeClassName="border-indigo-500 text-gray-900"
+                                    inactiveClassName="text-gray-500 hover:text-gray-700 hover:border-gray-300"
                                     to="/calender"
                                 >
                                     Calendar
@@ -95,7 +99,7 @@ export default function App() {
                 <main>
                     <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div className="px-4 py-8 sm:px-0">
-                            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
+                            <div className="border-4 border-dashed border-gray-200 rounded-lg h-80"></div>
                         </div>
                     </div>
                 </main>
